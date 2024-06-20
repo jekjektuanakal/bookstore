@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${BOOKSTORE_DB_USER}
+      POSTGRES_PASSWORD: ${BOOKSTORE_DB_PASSWORD}
+      POSTGRES_DB: ${BOOKSTORE_DB_NAME}
+    ports:
+      - "5432:5432"
+    networks:
+      - storenetwork 
+
+networks:
+  storenetwork:
+    driver: bridge
